@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [input, setInput] = useState('cat')
-  const [data, setData ] = useState(null);
-  const apiKey = "5e0a18c4-3d19-439b-abd9-7ed55f755093";
-  const apiUrl = "https://api.harvardartmuseums.org/object?title="
-  
+  const [input, setInput] = useState('cat');
+  const [data, setData] = useState(null);
+  const apiKey = '5e0a18c4-3d19-439b-abd9-7ed55f755093';
+  const apiUrl = 'https://api.harvardartmuseums.org/object?title=';
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `${apiUrl}${input}&apikey=${apiKey}`
-        );
+        const response = await fetch(`${apiUrl}${input}&apikey=${apiKey}`);
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
@@ -21,7 +19,7 @@ function App() {
 
     fetchData();
   }, []);
-  console.log(`${apiUrl}${input}&apikey=${apiKey}`)
+  console.log(`${apiUrl}${input}&apikey=${apiKey}`);
   console.log(data);
   return <h1>Hello World</h1>;
 }
