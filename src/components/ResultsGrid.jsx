@@ -1,5 +1,5 @@
 import ResultsItem from "./ResultItem";
-function ResultsGrid () {
+function ResultsGrid ({ records }) {
   return (
     <div className="p-4">
       <div className="grid grid-cols-4 gap-4">
