@@ -3,16 +3,9 @@ function ResultsGrid ({ records }) {
   return (
     <div className="p-4">
       <div className="grid grid-cols-4 gap-4">
-        <ResultsItem />
-        <ResultsItem />
-        <ResultsItem />
-        <ResultsItem />
-        <ResultsItem />
-        <ResultsItem />
-        <ResultsItem />
-        <ResultsItem />
-        <ResultsItem />
-        <ResultsItem />
+        {records.map(record => (
+          <ResultsItem key={record.objectid} record={record} />
+        ))}
       </div>
     </div>
   )
