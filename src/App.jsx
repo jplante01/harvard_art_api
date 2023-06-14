@@ -28,7 +28,9 @@ function App() {
   // console.log(`${apiUrl}${input}&apikey=${apiKey}`);
   console.log(data);
   return (
-    <ResultsGrid />
+    <>
+      {data && <ResultsGrid records={data.records}/>}
+    </>
   ) 
 
 }
