@@ -29,9 +29,25 @@ function App() {
   console.log(data);
   return (
     <>
-      {data && <ResultsGrid records={data.records}/>}
+      <div className="grid min-h-screen grid-rows-layout">
+        <div className="navbar bg-base-100 bg-sky-100">
+          <a text-xl>Harvard</a>
+        </div>
+        <div id="main">
+          {data && <ResultsGrid records={data.records} />}
+          </div>
+        <footer className="flex flex-col items-center justify-center">
+          <div className="space-around flex flex-row gap-8">
+            <a>Home</a>
+            <a>Friends</a>
+            <a>Support</a>
+          </div>
+
+          <span>copyright 2023</span>
+        </footer>
+      </div>
     </>
-  ) 
+  ); 
 
 }
 

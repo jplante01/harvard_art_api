@@ -5,4 +5,11 @@ export default {
     extend: {},
   },
   plugins: [],
+  theme: {
+    extend: {
+      gridTemplateRows: {
+        layout: '80px 1fr auto',
+      },
+    },
+  },
 };
