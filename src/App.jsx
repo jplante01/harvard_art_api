@@ -29,8 +29,8 @@ function App() {
   console.log(data);
   return (
     <>
-      <div className="grid min-h-screen grid-rows-layout">
-        <div className="navbar bg-base-100 bg-sky-100">
+      <div className="grid min-h-screen grid-rows-layout bg-theme-50">
+        <div className="navbar bg-theme-300 bg-sky-100">
           <a text-xl>Harvard</a>
         </div>
         <div id="main">
