@@ -13,16 +13,16 @@ function SearchForm() {
   };
 
   return (
-    <div>
+    <div className="ml-auto">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={searchTerm}
           onChange={handleChange}
           placeholder="search"
-          className="input input-sm"
+          className="input input-sm mr-2"
         />
-        <button type="submit">Search</button>
+        <button className="btn btn-sm" type="submit">Search</button>
       </form>
     </div>
   );

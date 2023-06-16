@@ -11,9 +11,9 @@ function ResultsItem({ record }) {
         </figure>
       }
           <div className="card-body">
-            <h3  className="px-2 pb-2 card-title text-theme-100">{title}</h3>
-            <h3 className="px-2 pb-2 text-theme-50">{culture}</h3>
-            <h3 className="px-2 pb-2 text-theme-50">Century: {century}</h3>
+            <h3  className="card-title text-theme-100">{title}</h3>
+            <h3 className="text-theme-50">{culture}</h3>
+            <h3 className="text-theme-50">Century: {century}</h3>
           </div>
         </div>
       
