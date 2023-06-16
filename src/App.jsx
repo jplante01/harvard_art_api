@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import ResultsGrid from './components/ResultsGrid'
 import testData from './data/testing_data.json' // TESTING: remove
+import SearchForm from './components/SearchForm';
 
 function App() {
   const [input, setInput] = useState('cat');
@@ -31,8 +32,9 @@ function App() {
     <>
       <div className="grid min-h-screen grid-rows-layout bg-theme-50">
         <div className="min-h-80px w-full row-start-1 row-end-2">
-          <div className="navbar fixed top-0 min-h-[80px] w-full bg-sky-100 bg-theme-300">
-            <a className="text-xl">Harvard</a>
+          <div className="navbar fixed top-0 min-h-[80px] w-full bg-sky-100 bg-theme-300 flex items-center">
+            <a className="text-3xl ml-4">Harvard</a>
+            <SearchForm />
           </div>
         </div>
 
