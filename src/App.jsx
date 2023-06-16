@@ -30,12 +30,13 @@ function App() {
   return (
     <>
       <div className="grid min-h-screen grid-rows-layout bg-theme-50">
-        <div className="navbar bg-theme-300 bg-sky-100">
-          <a text-xl>Harvard</a>
-        </div>
-        <div id="main">
-          {data && <ResultsGrid records={data.records} />}
+        <div className="min-h-80px w-full row-start-1 row-end-2">
+          <div className="navbar fixed top-0 min-h-[80px] w-full bg-sky-100 bg-theme-300">
+            <a className="text-xl">Harvard</a>
           </div>
+        </div>
+
+        <div id="main">{data && <ResultsGrid records={data.records} />}</div>
         <footer className="flex flex-col items-center justify-center">
           <div className="space-around flex flex-row gap-8">
             <a>Home</a>
