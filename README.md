@@ -9,3 +9,22 @@ https://iiif.harvardartmuseums.org/manifests
 You can request a manifest for any object by appending /object/OBJECT_ID to the base URL. For example the primary manifest for the object Self-Portrait Dedicated to Paul Gauguin is at:
 
 https://iiif.harvardartmuseums.org/manifests/object/299843
+
+# Color themes with daisyUI
+
+Tailwind does not provide semantic color names, but DaisyUI does. 
+
+*tailwind.config.js*
+```jsx
+module.exports = {
+  //...
+  daisyui: {
+    themes: ["light", "dark", "cupcake"],
+  },
+}
+```
+
+*index.html*
+```html
+<html data-theme="cupcake"></html>
+```
