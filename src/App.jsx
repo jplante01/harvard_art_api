@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ResultsGrid from './components/ResultsGrid'
 import testData from './data/testing_data.json' // TESTING: remove
 import SearchForm from './components/SearchForm';
+import Paginator from './components/Paginator'
 
 function App() {
   const [input, setInput] = useState('cat');
@@ -30,15 +31,18 @@ function App() {
   console.log(data);
   return (
     <>
-      <div className="grid min-h-screen grid-rows-layout bg-theme-50">
+      <div className="grid min-h-screen grid-rows-layout bg-base-100">
         <div className="min-h-80px w-full row-start-1 row-end-2">
-          <div className="navbar fixed top-0 min-h-[80px] w-full bg-sky-100 bg-theme-300 flex items-center">
+          <div className="navbar fixed top-0 min-h-[80px] w-full bg-primary flex items-center">
             <a className="text-3xl ml-4">Harvard</a>
             <SearchForm />
           </div>
         </div>
 
-        <div id="main">{data && <ResultsGrid records={data.records} />}</div>
+        <div id="main">
+          <Paginator />
+          {data && <ResultsGrid records={data.records} />}
+          </div>
         <footer className="flex flex-col items-center justify-center">
           <div className="space-around flex flex-row gap-8">
             <a>Home</a>
