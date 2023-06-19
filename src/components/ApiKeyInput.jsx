@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 
-function ApiKeyInput({apiKey, setApiKey}) {
+function ApiKeyInput({ setApiKey, setApiKeyDialogOpen }) {
+  const [value, setValue] = useState('');
+  const [error, setError] = useState(null);
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(searchTerm);
+    if (!value.match(/^\d{8}-\d{4}-\d{4}-\d{4}-\d{12}$/)) {
+      setError(
+        'Please enter a valid hyphenated number in the format: 00000000-0000-0000-0000-000000000000'
+      );
+      return;
+    }
+    setApiKey(value);
+    setApiKeyDialogOpen(false);
   };
 
   const handleChange = (event) => {
-    setApiKey(event.target.value);
+    setValue(event.target.value);
   };
 
   return (
@@ -15,12 +24,14 @@ function ApiKeyInput({apiKey, setApiKey}) {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={apiKey}
+          value={value}
           onChange={handleChange}
           placeholder="Please enter an api key"
           className="input input-sm mr-2"
         />
-        <button className="btn btn-sm" type="submit">Save</button>
+        <button className="btn-sm btn" type="submit">
+          Save
+        </button>
       </form>
     </div>
   );
