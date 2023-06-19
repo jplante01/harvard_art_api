@@ -3,14 +3,22 @@ import React, { useState } from 'react';
 function ApiKeyInput({ setApiKey, setApiKeyDialogOpen }) {
   const [value, setValue] = useState('');
   const [error, setError] = useState(null);
+
   const handleSubmit = (event) => {
+    console.log(value);
     event.preventDefault();
-    if (!value.match(/^\d{8}-\d{4}-\d{4}-\d{4}-\d{12}$/)) {
+    if (
+      !value.match(
+        /^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$/
+      )
+    ) {
+      console.log('error');
       setError(
         'Please enter a valid hyphenated number in the format: 00000000-0000-0000-0000-000000000000'
       );
       return;
     }
+    console.log('api key accepted');
     setApiKey(value);
     setApiKeyDialogOpen(false);
   };
