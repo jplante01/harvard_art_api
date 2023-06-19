@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
 
-function SearchForm() {
-  const [searchTerm, setSearchTerm] = useState('');
-
+function ApiKeyInput({apiKey, setApiKey}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(searchTerm);
   };
 
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    setApiKey(event.target.value);
   };
 
   return (
-    <div className="ml-8">
+    <div className="ml-auto">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={searchTerm}
+          value={apiKey}
           onChange={handleChange}
-          placeholder="search"
+          placeholder="Please enter an api key"
           className="input input-sm mr-2"
         />
-        <button className="btn btn-sm" type="submit">Search</button>
+        <button className="btn btn-sm" type="submit">Save</button>
       </form>
     </div>
   );
 }
 
-export default SearchForm;
+export default ApiKeyInput;
