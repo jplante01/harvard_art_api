@@ -8,10 +8,10 @@ import OptionsDialog from './components/OptionsDialog'
 import ApiKeyEntryDialog from './components/ApiKeyEntryDialog';
 
 function App() {
-  const [input, setInput] = useState('cat');
+
   const [resource, setResource] = useState('object');
   const [data, setData] = useState(null);
-  const [apiKey, setApiKey] = useState('');
+  // setData(testData);
   // const apiKey = '5e0a18c4-3d19-439b-abd9-7ed55f755093';
   const apiUrl = 'https://api.harvardartmuseums.org/object?';
 
@@ -28,10 +28,6 @@ function App() {
 
   //   fetchData();
   // }, []);
-  useEffect(() => {
-    setData(testData);
-  }, [])
-  // console.log(`${apiUrl}${input}&apikey=${apiKey}`);
   console.log('App rendered');
   return (
     <>
@@ -46,7 +42,7 @@ function App() {
 
         <div id="main">
           <Paginator />
-          {data && <ResultsGrid records={data.records} />}
+          {data && <ResultsGrid />}
           </div>
         <footer className="flex flex-col items-center justify-center">
           <div className="space-around flex flex-row gap-8">
@@ -57,7 +53,7 @@ function App() {
 
           <span>copyright 2023</span>
         </footer>
-      <ApiKeyEntryDialog apiKey={apiKey} setApiKey={setApiKey}/>
+      <ApiKeyEntryDialog />
       </div>
     </>
   ); 

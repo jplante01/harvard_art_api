@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import ApiKeyInput from './ApiKeyInput';
-function ApiKeyEntryDialog({ apiKey, setApiKey }) {
+import { AppContext } from '../contexts/AppContext'
+function ApiKeyEntryDialog() {
   const [apiKeyDialogOpen, setApiKeyDialogOpen] = useState(true);
+  const { apiKey, setApiKey } = useContext(AppContext);
+
   return (
     <Dialog open={apiKeyDialogOpen} onClose={() => setApiKeyDialogOpen(false)}>
       <Dialog.Panel className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
