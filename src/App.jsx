@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import ResultsGrid from './components/ResultsGrid';
-import testData from './data/testing_data.json'; // TESTING: remove
 import Paginator from './components/Paginator';
 import OptionsDialog from './components/OptionsDialog';
 import ApiKeyEntryDialog from './components/ApiKeyEntryDialog';
@@ -8,8 +7,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 function App() {
-  const [resource, setResource] = useState('object');
-  const [data, setData] = useState(null);
   // setData(testData);
   // const apiKey = '5e0a18c4-3d19-439b-abd9-7ed55f755093';
   const apiUrl = 'https://api.harvardartmuseums.org/object?';
@@ -34,7 +31,7 @@ function App() {
         <Navbar />
         <div id="main">
           <Paginator />
-          {data && <ResultsGrid />}
+          <ResultsGrid />
         </div>
         <Footer />
         <ApiKeyEntryDialog />
