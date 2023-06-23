@@ -7,9 +7,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 function App() {
-
-
-  console.log('App rendered');
   return (
     <>
       <div className="grid min-h-screen grid-rows-layout bg-base-100">

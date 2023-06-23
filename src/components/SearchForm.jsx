@@ -4,8 +4,9 @@ import { AppContext } from '../contexts/AppContext';
 function SearchForm() {
   const [searchTerm, setSearchTerm] = useState('');
   const { setRecords, apiKey } = useContext(AppContext);
-  const apiUrl = 'https://api.harvardartmuseums.org/object?';
-  const resource = 'object';
+  const apiUrl = 'https://api.harvardartmuseums.org/';
+  const resource = 'object?';
+  const filter = 'keyword='
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,8 +15,9 @@ function SearchForm() {
   
   const fetchData = async () => {
     try {
+      console.log(`${apiUrl}${resource}=${searchTerm}&apikey=${apiKey}`);
       const response = await fetch(
-        `${apiUrl}${resource}=${searchTerm}&apikey=${apiKey}`
+        `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}`
       );
       const jsonData = await response.json();
       const fetchedRecords = jsonData.records;
@@ -31,7 +33,7 @@ function SearchForm() {
   };
 
   return (
-    <div className="ml-8">
+    <div className="ml-auto">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
