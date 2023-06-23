@@ -6,26 +6,23 @@ function SearchForm() {
   const { setRecords, apiKey } = useContext(AppContext);
   const apiUrl = 'https://api.harvardartmuseums.org/';
   const resource = 'object?';
-  const filter = 'keyword='
+  const filter = 'keyword=';
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetchData();
-  };
-  
-  const fetchData = async () => {
+  async function fetchData() {
     try {
-      console.log(`${apiUrl}${resource}=${searchTerm}&apikey=${apiKey}`);
       const response = await fetch(
         `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}`
       );
       const jsonData = await response.json();
       const fetchedRecords = jsonData.records;
-      console.log(fetchedRecords);
       setRecords(fetchedRecords);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fetchData();
   };
 
   const handleChange = (event) => {
