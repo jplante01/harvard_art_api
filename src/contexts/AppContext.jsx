@@ -4,10 +4,10 @@ const AppContext = createContext();
 
 function AppContextProvider({ children }) {
   const [apiKey, setApiKey] = useState('');
-  const [formInput, setFormInput] = useState('');
+  const [records, setRecords] = useState([]);
 
   return (
-    <AppContext.Provider value={{ apiKey, setApiKey, formInput, setFormInput }}>
+    <AppContext.Provider value={{ apiKey, setApiKey, records, setRecords }}>
       {children}
     </AppContext.Provider>
   );
