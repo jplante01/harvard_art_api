@@ -1,61 +1,21 @@
-import { useEffect, useState } from 'react';
-import ResultsGrid from './components/ResultsGrid'
-import testData from './data/testing_data.json' // TESTING: remove
-import SearchForm from './components/SearchForm';
-import Paginator from './components/Paginator'
+import ResultsGrid from './components/ResultsGrid';
+import Paginator from './components/Paginator';
+import ApiKeyEntryDialog from './components/ApiKeyEntryDialog';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
-  const [input, setInput] = useState('cat');
-  const [resource, setResource] = useState('object');
-  const [data, setData] = useState(null);
-  const apiKey = '5e0a18c4-3d19-439b-abd9-7ed55f755093';
-  const apiUrl = 'https://api.harvardartmuseums.org/object?';
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(`${apiUrl}${resource}=${input}&apikey=${apiKey}`);
-  //       const jsonData = await response.json();
-  //       setData(jsonData);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-  useEffect(() => {
-    setData(testData);
-  }, [])
-  // console.log(`${apiUrl}${input}&apikey=${apiKey}`);
-  console.log(data);
   return (
-    <>
-      <div className="grid min-h-screen grid-rows-layout bg-base-100">
-        <div className="min-h-80px w-full row-start-1 row-end-2">
-          <div className="navbar fixed top-0 min-h-[80px] w-full bg-primary flex items-center">
-            <a className="text-3xl ml-4">Harvard</a>
-            <SearchForm />
-          </div>
-        </div>
-
-        <div id="main">
-          <Paginator />
-          {data && <ResultsGrid records={data.records} />}
-          </div>
-        <footer className="flex flex-col items-center justify-center">
-          <div className="space-around flex flex-row gap-8">
-            <a>Home</a>
-            <a>Friends</a>
-            <a>Support</a>
-          </div>
-
-          <span>copyright 2023</span>
-        </footer>
+    <div className="grid min-h-screen grid-rows-layout bg-base-100">
+      <Navbar />
+      <div id="main">
+        <Paginator />
+        <ResultsGrid />
       </div>
-    </>
-  ); 
-
+      <Footer />
+      <ApiKeyEntryDialog />
+    </div>
+  );
 }
 
 export default App;
@@ -65,4 +25,4 @@ export default App;
 // record.images => array of images inside each record
 // record.primaryimageurl => ?
 // record.images[n].iiifbaseuri => url for an iiif request
-// 
+//
