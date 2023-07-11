@@ -30,8 +30,11 @@ function ApiKeyEntryDialog() {
             setApiKey={setApiKey}
             setApiKeyDialogOpen={setApiKeyDialogOpen}
           />
-          <Dialog.Description className="mb-4 text-gray-700">
-            You can receive an api key through this link:
+          <Dialog.Description className="mb-3 mt-2 text-gray-700">
+            You can request an api key
+            <a className="text-accent ml-1" href="https://docs.google.com/forms/d/e/1FAIpQLSfkmEBqH76HLMMiCC-GPPnhcvHC9aJS86E32dOd0Z8MpY2rvQ/viewform">
+              here
+            </a>
           </Dialog.Description>
         </div>
       </Dialog.Panel>
