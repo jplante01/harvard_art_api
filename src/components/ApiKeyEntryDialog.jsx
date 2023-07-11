@@ -3,7 +3,6 @@ import { Dialog } from '@headlessui/react';
 import ApiKeyInput from './ApiKeyInput';
 import { AppContext } from '../contexts/AppContext';
 
-// test
 function ApiKeyEntryDialog() {
   const [apiKeyDialogOpen, setApiKeyDialogOpen] = useState(true);
   const { apiKey, setApiKey } = useContext(AppContext);
