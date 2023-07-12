@@ -11,7 +11,7 @@ function ResultsGrid() {
         {console.log(records)}
         {records
           && records.map((record) => (
-            <ResultsItem key={record.objectid} record={record} />
+            record.primaryimageurl && <ResultsItem key={record.objectid} record={record} />
           ))}
       </div>
     </div>

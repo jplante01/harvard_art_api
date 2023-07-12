@@ -1,3 +1,15 @@
+# Harvard Art API
+
+## Request format
+URL = https://api.harvardartmuseums.org/
+RESOURCE = e.g. object
+APIKEY
+FILTER
+
+URL + RESOURCE + ? + APIKEY + & + FILTER + & + FILTER 
+
+
+### Notes
 According to the docs, 91% of the records have at least one image. Need to handle 0 image cases as well as multiple image cases.
 
 Each record contains an array 'images' that may or may not contain image objects. The image objects contain a key 'baseimageurl' which is described as the 'primary internet address for the image'. There is also a key 'iiifbaseuri' which provides the root address for accessing the image through their IIIF image delivery service.
