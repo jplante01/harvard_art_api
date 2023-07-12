@@ -9,10 +9,10 @@ function SearchForm() {
   const filter = 'keyword=';
 
   async function fetchData() {
+    const requestUrl = `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}&size=50`; 
+    console.log(requestUrl);
     try {
-      const response = await fetch(
-        `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}`
-      );
+      const response = await fetch(requestUrl);
       const jsonData = await response.json();
       const fetchedRecords = jsonData.records;
       setRecords(fetchedRecords);
