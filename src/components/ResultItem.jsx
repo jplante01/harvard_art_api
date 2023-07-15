@@ -1,12 +1,10 @@
-import { useContext } from 'react';
+import { useContext, } from 'react';
 import { AppContext } from '../contexts/AppContext';
 
 function ResultsItem({ record, index }) {
   const { closeUpOpen, setCloseUpOpen, setSelected } = useContext(AppContext);
-  const century = record.century ? record.century : 'not provided';
-  const title = record.title ? record.title : 'none';
-  const culture = record.culture ? record.culture : 'not provided';
   const image = record.primaryimageurl ? record.primaryimageurl : '';
+  const description = record.description ? record.description : 'description not provided';
 
   function handleClick() {
     setSelected(index);
@@ -32,7 +30,7 @@ function ResultsItem({ record, index }) {
   //   </div>
 
     // </div>
-    <img src={image} alt="art" onClick={handleClick} />
+    <img src={image} alt={description} onClick={handleClick} />
   );
 }
 
