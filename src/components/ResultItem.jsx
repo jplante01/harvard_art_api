@@ -1,14 +1,15 @@
 import { useContext } from 'react';
 import { AppContext } from '../contexts/AppContext';
 
-function ResultsItem({ record }) {
-  const { closeUpOpen, setCloseUpOpen } = useContext(AppContext);
+function ResultsItem({ record, index }) {
+  const { closeUpOpen, setCloseUpOpen, setSelected } = useContext(AppContext);
   const century = record.century ? record.century : 'not provided';
   const title = record.title ? record.title : 'none';
   const culture = record.culture ? record.culture : 'not provided';
   const image = record.primaryimageurl ? record.primaryimageurl : '';
 
   function handleClick() {
+    setSelected(index);
     setCloseUpOpen(true);
     console.log(['fired', closeUpOpen]);
   }

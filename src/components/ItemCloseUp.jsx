@@ -3,9 +3,11 @@ import { Dialog } from '@headlessui/react';
 import { AppContext } from '../contexts/AppContext';
 
 function ItemCloseUp() {
-  const { selected, records, closeUpOpen, setCloseUpOpen} = useContext(AppContext);
+  const {
+    selected, records, closeUpOpen, setCloseUpOpen
+  } = useContext(AppContext);
   const image = selected ? records[selected].primaryimageurl : null;
-  
+  console.log([selected, image]);
   return (
     <Dialog
       open={closeUpOpen}

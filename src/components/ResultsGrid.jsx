@@ -10,8 +10,8 @@ function ResultsGrid() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4">
         {console.log(records)}
         {records
-          && records.map((record) => (
-            record.primaryimageurl && <ResultsItem key={record.objectid} record={record} />
+          && records.map((record, idx) => (
+            record.primaryimageurl && <ResultsItem key={record.objectid} record={record} index={idx} />
           ))}
       </div>
     </div>
