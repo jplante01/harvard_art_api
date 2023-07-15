@@ -3,6 +3,7 @@ import Paginator from './components/Paginator';
 import ApiKeyEntryDialog from './components/ApiKeyEntryDialog';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ItemCloseUp from './components/ItemCloseUp';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       </div>
       <Footer />
       <ApiKeyEntryDialog />
+      <ItemCloseUp />
     </div>
   );
 }

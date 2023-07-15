@@ -5,6 +5,8 @@ const AppContext = createContext();
 function AppContextProvider({ children }) {
   const [apiKey, setApiKey] = useState('');
   const [records, setRecords] = useState([]);
+  const [selected, setSelected] = useState(0);
+  const [closeUpOpen, setCloseUpOpen] = useState(true);
 
   const contextValue = useMemo(
     () => ({
@@ -12,6 +14,10 @@ function AppContextProvider({ children }) {
       setApiKey,
       records,
       setRecords,
+      selected,
+      setSelected,
+      closeUpOpen, 
+      setCloseUpOpen,
     }),
     [apiKey, setApiKey, records, setRecords]
   );
