@@ -12,8 +12,8 @@ function ItemCloseUp() {
   const title = record && record.title ? record.title : 'not provided';
   const culture = record && record.culture ? record.culture : 'not provided';
   const description = record && record.description ? record.description : 'not provided';
-
-  console.log([selected, image]);
+  const url = record && record.url ? record.url : 'not provided';
+  
   return (
     <Dialog
       open={closeUpOpen}
@@ -22,11 +22,16 @@ function ItemCloseUp() {
       }}
     >
       <Dialog.Panel className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-        <div>
+        <div className="w-2/3 rounded overflow-hidden">
           {records && <img src={image} alt="image" />}
-          <div>
-            <Dialog.Title>Title: {title}</Dialog.Title>
-            <Dialog.Description>Description: {description}</Dialog.Description>
+          <div className="bg-secondary">
+            <Dialog.Title className="text-secondary-content pl-4 pt-2">
+              Title: {title}
+            </Dialog.Title>
+            <Dialog.Description className="text-secondary-content pl-4 py-2">
+              Description: {description}
+            </Dialog.Description>
+            <a href={url} target="_blank" className="py-2 pl-4">{url}</a>
           </div>
         </div>
       </Dialog.Panel>
