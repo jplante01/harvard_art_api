@@ -1,19 +1,37 @@
 import { useContext } from 'react';
+import Masonry from 'react-masonry-css';
 import ResultsItem from './ResultItem';
 import { AppContext } from '../contexts/AppContext';
 
 function ResultsGrid() {
   const { records } = useContext(AppContext);
 
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1,
+  };
+
   return (
-    <div className="overflow-auto p-4">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4">
-        {console.log(records)}
-        {records
-          && records.map((record, idx) => (
-            record.primaryimageurl && <ResultsItem key={record.objectid} record={record} index={idx} />
-          ))}
-      </div>
+    <div className="overflow-auto p-4 width-screen">
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
+        {records &&
+          records.map(
+            (record, idx) =>
+              record.primaryimageurl && (
+                <ResultsItem
+                  key={record.objectid}
+                  record={record}
+                  index={idx}
+                />
+              )
+          )}
+      </Masonry>
     </div>
   );
 }
