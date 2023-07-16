@@ -24,8 +24,10 @@ function ItemCloseUp() {
       <Dialog.Panel className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
         <div>
           {records && <img src={image} alt="image" />}
-          <Dialog.Title>Title: {title}</Dialog.Title>
-          <Dialog.Description>Description: {description}</Dialog.Description>
+          <div>
+            <Dialog.Title>Title: {title}</Dialog.Title>
+            <Dialog.Description>Description: {description}</Dialog.Description>
+          </div>
         </div>
       </Dialog.Panel>
     </Dialog>

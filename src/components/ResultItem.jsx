@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { ViewfinderCircleIcon } from '@heroicons/react/24/outline';
 import { AppContext } from '../contexts/AppContext';
 
 function ResultsItem({ record, index }) {
@@ -34,18 +35,22 @@ function ResultsItem({ record, index }) {
     //   </div>
 
     // </div>
-    <div>
+    <div className="relative">
       <img
         src={image}
         alt={description}
         onClick={handleClick}
         onLoad={handleImageLoad}
+        className="relative"
       />
       {loading && (
-      <div class="flex justify-center align-middle min-h-full">
-        <span className="loading loading-ring loading-md" />
-      </div>
+        <div className="flex min-h-full justify-center align-middle">
+          <span className="loading loading-ring loading-md" />
+        </div>
       )}
+      <div className="absolute top-0 left-0 flex justify-center items-center h-full">
+        <ViewfinderCircleIcon className="w-1/5" />
+      </div>
     </div>
   );
 }
