@@ -4,7 +4,8 @@ import ResultsItem from './ResultItem';
 import { AppContext } from '../contexts/AppContext';
 
 function ResultsGrid() {
-  const { records } = useContext(AppContext);
+  const { data } = useContext(AppContext);
+  const records = data && data.records ? data.records : null;
 
   const breakpointColumnsObj = {
     default: 4,

@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 function AppContextProvider({ children }) {
   const [apiKey, setApiKey] = useState('');
-  const [records, setRecords] = useState([]);
+  const [data, setData] = useState(null);
   const [selected, setSelected] = useState(null);
   const [closeUpOpen, setCloseUpOpen] = useState(false);
 
@@ -12,8 +12,8 @@ function AppContextProvider({ children }) {
     () => ({
       apiKey,
       setApiKey,
-      records,
-      setRecords,
+      data,
+      setData,
       selected,
       setSelected,
       closeUpOpen,
@@ -22,8 +22,8 @@ function AppContextProvider({ children }) {
     [
       apiKey,
       setApiKey,
-      records,
-      setRecords,
+      data,
+      setData,
       selected,
       setSelected,
       closeUpOpen,
