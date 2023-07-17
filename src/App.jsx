@@ -1,5 +1,4 @@
 import ResultsGrid from './components/ResultsGrid';
-import Paginator from './components/Paginator';
 import ApiKeyEntryDialog from './components/ApiKeyEntryDialog';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -10,7 +9,6 @@ function App() {
     <div className="grid min-h-screen grid-rows-layout bg-base-100">
       <Navbar />
       <div id="main">
-        <Paginator />
         <ResultsGrid />
       </div>
       <Footer />

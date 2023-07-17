@@ -1,11 +1,30 @@
-function Paginator() {
+import { v4 as uuidv4 } from 'uuid';
+
+function Paginator({
+  numPages, activePage, nextPage, prevPage
+}) {
+  const elements = [];
+
+  for (let i = 1; i <= numPages; i++) {
+    elements.push(
+      <button key={uuidv4()} className="join-item btn">
+        {i}
+      </button>
+    );
+  }
   return (
-    <div className="flex flex-row justify-center">
+    <div className="flex flex-row justify-center mb-4">
       <div className="join">
-        <button className="btn-sm join-item btn">1</button>
-        <button className="btn-active btn-sm join-item btn">2</button>
-        <button className="btn-sm join-item btn">3</button>
-        <button className="btn-sm join-item btn">4</button>
+        {/* {numbers.map((el, idx) => (
+          <button key={uuidv4()} className="join-item btn">
+            {idx}
+          </button>
+          <button key={pageNumber} className="btn-active join-item btn">
+            {pageNumber}
+          </button>
+
+        ))} */}
+        {elements}
       </div>
     </div>
   );
