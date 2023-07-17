@@ -7,7 +7,7 @@ import { AppContext } from '../contexts/AppContext';
 
 function ResultsItem({ record, index }) {
   const [loading, setLoading] = useState(true);
-  const { closeUpOpen, setCloseUpOpen, setSelected } = useContext(AppContext);
+  const { setCloseUpOpen, setSelected } = useContext(AppContext);
   const image = record.primaryimageurl ? record.primaryimageurl : '';
   const description = record.description ? record.description : 'description not provided';
   const [isHovered, setIsHovered] = useState(false);
@@ -15,7 +15,6 @@ function ResultsItem({ record, index }) {
   function handleClick() {
     setSelected(index);
     setCloseUpOpen(true);
-    console.log('clicked')
   }
   function handleImageLoad() {
     setLoading(false);

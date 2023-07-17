@@ -20,16 +20,15 @@ function ResultsGrid() {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {records &&
-          records.map(
-            (record, idx) =>
-              record.primaryimageurl && (
-                <ResultsItem
-                  key={record.objectid}
-                  record={record}
-                  index={idx}
-                />
-              )
+        {records
+          && records.map(
+            (record, idx) => record.primaryimageurl && (
+            <ResultsItem
+              key={record.objectid}
+              record={record}
+              index={idx}
+            />
+            )
           )}
       </Masonry>
     </div>

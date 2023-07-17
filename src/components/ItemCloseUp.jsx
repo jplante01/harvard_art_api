@@ -8,12 +8,10 @@ function ItemCloseUp() {
   } = useContext(AppContext);
   const record = records[selected];
   const image = selected ? record.primaryimageurl : null;
-  const century = record && record.century ? record.century : 'not provided';
   const title = record && record.title ? record.title : 'not provided';
-  const culture = record && record.culture ? record.culture : 'not provided';
   const description = record && record.description ? record.description : 'not provided';
-  const url = record && record.url ? record.url : 'not provided';
-  
+  // const url = record && record.url ? record.url : 'not provided';
+
   return (
     <Dialog
       open={closeUpOpen}
@@ -23,13 +21,17 @@ function ItemCloseUp() {
     >
       <Dialog.Panel className="fixed inset-0 flex h-full w-full items-center justify-center bg-gray-900 bg-opacity-50">
         <div className="max-h-lg max-w-lg overflow-hidden rounded">
-          {records && <img src={image} alt="image" />}
+          {records && <img src={image} alt={description} />}
           <div className="bg-secondary">
             <Dialog.Title className="pl-4 pt-2 text-secondary-content">
-              Title: {title}
+              Title:
+              {' '}
+              {title}
             </Dialog.Title>
             <Dialog.Description className="py-2 pl-4 text-secondary-content">
-              Description: {description}
+              Description:
+              {' '}
+              {description}
             </Dialog.Description>
             {/* <div className="mb-4 pl-4">
               <a href={url} target="_blank">
