@@ -21,17 +21,21 @@ function ItemCloseUp() {
         setCloseUpOpen(false);
       }}
     >
-      <Dialog.Panel className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-        <div className="w-2/3 rounded overflow-hidden">
+      <Dialog.Panel className="fixed inset-0 flex h-full w-full items-center justify-center bg-gray-900 bg-opacity-50">
+        <div className="max-h-lg max-w-lg overflow-hidden rounded">
           {records && <img src={image} alt="image" />}
           <div className="bg-secondary">
-            <Dialog.Title className="text-secondary-content pl-4 pt-2">
+            <Dialog.Title className="pl-4 pt-2 text-secondary-content">
               Title: {title}
             </Dialog.Title>
-            <Dialog.Description className="text-secondary-content pl-4 py-2">
+            <Dialog.Description className="py-2 pl-4 text-secondary-content">
               Description: {description}
             </Dialog.Description>
-            <a href={url} target="_blank" className="py-2 pl-4">{url}</a>
+            {/* <div className="mb-4 pl-4">
+              <a href={url} target="_blank">
+                {url}
+              </a>
+            </div> */}
           </div>
         </div>
       </Dialog.Panel>
