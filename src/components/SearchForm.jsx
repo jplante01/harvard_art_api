@@ -7,7 +7,7 @@ function SearchForm() {
   const apiUrl = 'https://api.harvardartmuseums.org/';
   const resource = 'object?';
   const filter = 'keyword=';
-  const requestUrl = `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}&size=25`;
+  const requestUrl = `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}&size=25&page=1`;
 
   // async function fetchData() {
   //   const requestUrl = `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}&size=25`;
