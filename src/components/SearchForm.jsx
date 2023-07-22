@@ -3,26 +3,27 @@ import { AppContext } from '../contexts/AppContext';
 
 function SearchForm() {
   const [searchTerm, setSearchTerm] = useState('');
-  const { setData, apiKey } = useContext(AppContext);
+  const { setData, apiKey, setUrl } = useContext(AppContext);
   const apiUrl = 'https://api.harvardartmuseums.org/';
   const resource = 'object?';
   const filter = 'keyword=';
+  const requestUrl = `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}&size=25`;
 
-  async function fetchData() {
-    const requestUrl = `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}&size=25`;
-    console.log(requestUrl);
-    try {
-      const response = await fetch(requestUrl);
-      const jsonData = await response.json();
-      const fetchedData = jsonData;
-      setData(fetchedData);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
+  // async function fetchData() {
+  //   const requestUrl = `${apiUrl}${resource}${filter}${searchTerm}&apikey=${apiKey}&size=25`;
+  //   console.log(requestUrl);
+  //   try {
+  //     const response = await fetch(requestUrl);
+  //     const jsonData = await response.json();
+  //     const fetchedData = jsonData;
+  //     setData(fetchedData);
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  // }
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchData();
+    setUrl(requestUrl);
   };
 
   const handleChange = (event) => {
