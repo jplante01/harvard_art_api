@@ -34,18 +34,18 @@ function ItemCloseUp() {
               <XMarkIcon className="h-8 w-8 text-secondary" />
             </button>
           </div>
-          <div className="bg-secondary">
+          <div className="bg-secondary rounded-b">
             <Dialog.Title className="pl-4 pt-2 text-secondary-content">
               Title: {title}
             </Dialog.Title>
             <Dialog.Description className="py-2 pl-4 text-secondary-content">
               Description: {description}
             </Dialog.Description>
-            {/* <div className="mb-4 pl-4">
+            <div className="pb-4 pl-4">
               <a href={url} target="_blank">
                 {url}
               </a>
-            </div> */}
+            </div>
           </div>
         </div>
       </Dialog.Panel>
