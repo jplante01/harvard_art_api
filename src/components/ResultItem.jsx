@@ -27,7 +27,11 @@ function ResultsItem({ record, index }) {
     setIsHovered(false);
   };
   return (
-    <div className={`relative ${isHovered ? 'cursor-pointer' : ''}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+    <div
+      className={`relative ${isHovered ? 'cursor-pointer' : ''}`}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+    >
       <img
         src={image}
         alt={description}
@@ -39,8 +43,17 @@ function ResultsItem({ record, index }) {
           <span className="loading loading-ring loading-md" />
         </div>
       )}
-      <div onClick={handleClick} className="absolute top-0 left-0 flex justify-center items-center h-full">
-        <ViewfinderCircleIcon className={`text-secondary w-1/5 ${isHovered ? 'block cursor-pointer' : 'hidden'}`} />
+      <div
+        onClick={handleClick}
+        className="absolute left-0 top-0 flex h-full items-end justify-end"
+      >
+        <ViewfinderCircleIcon
+          className={`mb-3 w-1/5 text-secondary  ${
+            isHovered
+              ? 'opacity-100'
+              : 'opacity-0 transition-opacity duration-300'
+          }`}
+        />
       </div>
     </div>
   );
